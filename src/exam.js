@@ -33,7 +33,7 @@ export const add = function (a, b) {
  * @param  {[type]}  b [description]
  */
 export const addDouble = function (a, b) {
-  return null;
+  return (a+b) * 2;
 }
 
 /**
@@ -47,7 +47,7 @@ export const addDouble = function (a, b) {
  */
 
 export const isPalindrome = function (word) {
-  return null;
+  return word === word.split("").reverse().join("");
 }
 
 /**
@@ -64,7 +64,15 @@ export const isPalindrome = function (word) {
 export const frequencySort = function(input){
   let store = {}
   input.forEach((n) => store[n] ? store[n] += 1 : store[n] = 1)
-  return [];
+  return Object.keys(store).sort((a, b) => {
+    if(store[a] > store[b]){
+      return -1;
+    }
+    if (store[a] < store[b]){
+      return 1;
+    }
+    return 0
+  }).map((n) => parseInt(n))
 }
 
 /**
@@ -85,7 +93,6 @@ export const countTitlesWith = function(substring, callback) {
     url: 'https://jsonplaceholder.typicode.com/posts',
   }, function(error, response, body) {
     if (error) throw new Error(error);
-    callback("This should be the number of records " +
-      " with the substring in the title field")
+    callback(JSON.parse(body).reduce((pv, cv) => cv.title.indexOf(substring) !== -1 ? pv + 1 : pv, 0))
   });
 }

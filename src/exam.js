@@ -62,8 +62,6 @@ export const isPalindrome = function (word) {
  */
 
 export const frequencySort = function(input){
-  let store = {}
-  input.forEach((n) => store[n] ? store[n] += 1 : store[n] = 1)
   return [];
 }
 
@@ -85,7 +83,13 @@ export const countTitlesWith = function(substring, callback) {
     url: 'https://jsonplaceholder.typicode.com/posts',
   }, function(error, response, body) {
     if (error) throw new Error(error);
+    // HINT: Edit only between these lines.
+
+
     callback("This should be the number of records " +
       " with the substring in the title field")
+
+
+    // HINT: Edit only between these lines.
   });
 }

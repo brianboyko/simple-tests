@@ -1,6 +1,4 @@
 import chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-chai.use(chaiAsPromised);
 const expect = chai.expect;
 
 import {
@@ -8,6 +6,7 @@ import {
   addDouble,
   isPalindrome,
   frequencySort,
+  countTitlesWith,
 } from '../src/exam';
 
 describe('add', function(){
@@ -35,5 +34,14 @@ describe('frequencySort', function(){
   it("should sort an array's integers in orer of frequency", function(){
     expect(frequencySort([1, 3, 1, 8, 1, 3, 2, 1, 3, 8])).to.eql([1, 3, 8, 2])
     expect(frequencySort([3, 7148, 7148])).to.eql([7148, 3])
+  })
+})
+
+describe('countTitlesWith', function(){
+  it('should correctly count the number of titles', function(done){
+    countTitlesWith('odio', function(result){
+      expect(result).to.equal(6);
+      done();
+    })
   })
 })

@@ -1,3 +1,4 @@
+const request = require("request");
 /**
  * This is an intro exam for programming.
  * Fill in the questions in order. Don't worry about
@@ -64,4 +65,27 @@ export const frequencySort = function(input){
   let store = {}
   input.forEach((n) => store[n] ? store[n] += 1 : store[n] = 1)
   return [];
+}
+
+/**
+ * This function uses the "request" NPM module.
+ * It should create a GET request to:
+ *   https://jsonplaceholder.typicode.com/posts
+ * When the request resolves, you should call the "callback" function
+ * with the number of records which have the substring in the title.
+ * @function countTitlesWith
+ * @param {string} substring - the string to search for.
+ * @param {function} callback - a callback function to use in testing.
+ */
+
+
+export const countTitlesWith = function(substring, callback) {
+  request({
+    method: 'GET',
+    url: 'https://jsonplaceholder.typicode.com/posts',
+  }, function(error, response, body) {
+    if (error) throw new Error(error);
+    callback("This should be the number of records " +
+      " with the substring in the title field")
+  });
 }

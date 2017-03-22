@@ -7,7 +7,7 @@ import {
   isPalindrome,
   frequencySort,
   countTitlesWith,
-} from '../src/exam';
+} from '../src/01basics';
 
 describe('add', function(){
   it('should add two numbers correctly', function(){
